@@ -84,7 +84,6 @@ This project approaches the problem from a **product analytics and lifecycle man
 ### H1 — Engagement vs. Customer Value
 
 > **Purchase recency and frequency are stronger predictors of future churn than transaction value, suggesting that habitual engagement may be more important for retention than simply spending more.**
-<br/>
 
 **Finding:**
 
@@ -107,7 +106,10 @@ This project approaches the problem from a **product analytics and lifecycle man
 
 ### H2 — Inactivity & Reactivation
 
-> **Among cards entering an observed inactivity episode, does the probability of reactivation decline as inactivity duration increases, and is approximately 30 days a meaningful intervention threshold?**
+> **Among cards observed to still be inactive at day 10, the probability of reactivating within the next N days is materially lower than for cards observed to still be inactive at day 5. (Day 30 will be examined as a secondary/extended landmark to check whether the effect strengthens further out.)**
+
+**Finding:**
+-
 
 **Why this matters:** A lifecycle team needs to know when inactivity becomes actionable. Rather than arbitrarily defining 30 days as "inactive," this analysis treats inactivity as a **time-to-reactivation problem**.
 
