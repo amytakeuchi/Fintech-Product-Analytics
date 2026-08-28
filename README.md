@@ -84,6 +84,7 @@ This project approaches the problem from a **product analytics and lifecycle man
 ### H1 — Engagement vs. Customer Value
 
 > **Purchase recency and frequency are stronger predictors of future churn than transaction value, suggesting that habitual engagement may be more important for retention than simply spending more.**
+<br/>
 **Finding:**
 - Against Recency, churn probability increases materially between 90-120 days and 121-180 days while higher frequency shows modest impact on churn probability with 20% Churn rate on 50+ more frequent buyers.
 - Recency shows string correlation with Churn, having 0.84 Pearson and 0.61 Spearman. On the other hand, Frequency has negative correlation between Churn with -0.11 Pearson and -0.16 Spearman.
