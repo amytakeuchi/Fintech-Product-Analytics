@@ -79,8 +79,8 @@ This project approaches the problem from a **product analytics and lifecycle man
 
 ---
 
-## Key Hypotheses
-
+# Key Hypotheses
+## 1. Retention & engagement diagnosis
 ### H1 — Engagement vs. Customer Value
 
 > **Purchase recency and frequency are stronger predictors of future churn than transaction value, suggesting that habitual engagement may be more important for retention than simply spending more.**
