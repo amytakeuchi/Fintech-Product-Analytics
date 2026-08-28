@@ -91,6 +91,8 @@ This project approaches the problem from a **product analytics and lifecycle man
 - Recency shows string correlation with Churn, having 0.84 Pearson and 0.61 Spearman. On the other hand, Frequency has negative correlation between Churn with -0.11 Pearson and -0.16 Spearman.
 - It is important to note that the definition of “Churn” here is “no transaction from 90 days before the cutoff of the data” and this can explain hte strong correlation between recency.
 
+<img src="image/rf_churn.png" width="1000" title="Recency & Frequency vs Churn rate">
+
 **Why this matters:** A high-spending customer is not necessarily a loyal customer. A customer who purchases frequently may provide a stronger signal of an established behavioral habit.
 
 **Analysis:**
@@ -159,6 +161,8 @@ The 98th percentile is approximately 28 days, making 30 days an interesting cand
 
 **Finding:**
 - Earlier cohorts in February and March exhibit steeper earlier drop off with -19.4, -20.1, and -17.1 dropoffs in the first month and -2.8, -0..8, and -1.0 in the subsequent month
+
+<img src="image/cohort_dropoff.png" width="800" title="Cohort Dropoff Visualization">
 
 **Why this matters:** Overall retention can hide differences in customer lifecycle maturity. A recently activated customer may behave very differently from a customer who has been using the card for months.
 
