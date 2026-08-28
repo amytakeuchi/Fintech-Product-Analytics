@@ -223,9 +223,15 @@ The analysis therefore goes beyond identifying high-value customers and asks: **
 
 ## Frequency Analysis
 
-Purchase frequency was not a stronger predictor of total customer value (LTV) than average order size.
+Purchase frequency is a stronger predictor of total customer value (LTV), while it doesn't have any impact after controlling average order value (AOV).
 **Findings**
-- 
+- Spearman ρ = 0.930 → strong monotonic link (marginal, ignores other vars)
+- OLS std coef = 0.007 → almost no unique effect once AOV is controlled
+- Why Spearman still matters:
+- Monetary is heavily skewed (skew=64, kurtosis=5108) → OLS assumptions (normal residuals, linear fit) are badly violated
+- Skewed data → Pearson/OLS coefficients get distorted by outliers; Spearman (rank-based) is robust to that
+- Spearman correctly shows frequency is associated with monetary — OLS just shows that association is mediated through AOV, not independent
+
 ---
 
 ### H4 — Behavioral Segmentation & Retention
