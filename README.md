@@ -109,7 +109,8 @@ This project approaches the problem from a **product analytics and lifecycle man
 > **Among cards observed to still be inactive at day 10, the probability of reactivating within the next N days is materially lower than for cards observed to still be inactive at day 5. (Day 30 will be examined as a secondary/extended landmark to check whether the effect strengthens further out.)**
 
 **Finding:**
--
+- Cards inactive for 30+ days show a statistically significant difference in subsequent reactivation compared to cards inactive for only 5–10 days (log-rank p < 0.005).
+- The practical difference is large: median time-to-reactivation is 6.08 days for day-5 survivors/9.68 days for day-10 survivors vs. 16.26 days for day-30 survivors
 
 **Why this matters:** A lifecycle team needs to know when inactivity becomes actionable. Rather than arbitrarily defining 30 days as "inactive," this analysis treats inactivity as a **time-to-reactivation problem**.
 
@@ -155,6 +156,9 @@ The 98th percentile is approximately 28 days, making 30 days an interesting cand
 ### H3 — Cohort Retention & Activation Risk
 
 > **Do newer customer cohorts exhibit steeper early retention declines than older cohorts, indicating an onboarding or activation opportunity?**
+
+**Finding:**
+- Earlier cohorts in February and March exhibit steeper earlier drop off with -19.4, -20.1, and -17.1 dropoffs in the first month and -2.8, -0..8, and -1.0 in the subsequent month
 
 **Why this matters:** Overall retention can hide differences in customer lifecycle maturity. A recently activated customer may behave very differently from a customer who has been using the card for months.
 
@@ -204,16 +208,24 @@ Monetary = total transaction value
 
 ---
 
-## Customer Value Concentration
+## Customer Value Concentration Analysis
 
 Initial RFM analysis shows a meaningful concentration of transaction value among higher-value customers.
 
-> **The top 36.19% of users (Top + High tiers) account for 59.62% of total monetary value.**
-
-This suggests that customer value is concentrated among a relatively smaller group of users, making retention of high-value customers particularly important.
+**Findings**
+- The top 36.19% of users (Top + High tier) account for 59.62% of total monetary value.
+- The remaining 44.05% of users (Mid-high + Mid tier) account for 39.07% of total monetary value.
+- This suggests that customer value is concentrated among a relatively smaller group of users, making retention of high-value customers particularly important.
 
 The analysis therefore goes beyond identifying high-value customers and asks: **Which high-value customers are currently healthy, and which are showing behavioral signs of future risk?**
 
+---
+
+## Frequency Analysis
+
+Purchase frequency was not a stronger predictor of total customer value (LTV) than average order size.
+**Findings**
+- 
 ---
 
 ### H4 — Behavioral Segmentation & Retention
