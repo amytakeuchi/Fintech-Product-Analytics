@@ -81,7 +81,7 @@ This project approaches the problem from a **product analytics and lifecycle man
 
 # Key Hypotheses
 ## 1. Retention & engagement diagnosis
-### H1 — Engagement vs. Customer Value
+### H1 — Engagement (Recency & Frequency) vs. Customer Value --> Churn
 
 > **Purchase recency and frequency are stronger predictors of future churn than transaction value, suggesting that habitual engagement may be more important for retention than simply spending more.**
 
@@ -106,7 +106,7 @@ This project approaches the problem from a **product analytics and lifecycle man
 
 ---
 
-### H2 — Inactivity & Reactivation
+### H2 — D5 vs D10 Retention --> Inactivity & Reactivation 
 
 > **Among cards observed to still be inactive at day 10, the probability of reactivating within the next N days is materially lower than for cards observed to still be inactive at day 5. (Day 30 will be examined as a secondary/extended landmark to check whether the effect strengthens further out.)**
 
@@ -155,7 +155,7 @@ The 98th percentile is approximately 28 days, making 30 days an interesting cand
 
 ---
 
-### H3 — Cohort Retention & Activation Risk
+### H3 — Cohort Retention & Activation Risk (Earlier Cohort --> Retention Decline)
 
 > **Do newer customer cohorts exhibit steeper early retention declines than older cohorts, indicating an onboarding or activation opportunity?**
 
@@ -212,7 +212,7 @@ Monetary = total transaction value
 
 ---
 
-## Customer Value Concentration Analysis
+## [Monetary] Customer Value Concentration Analysis 
 
 Initial RFM analysis shows a meaningful concentration of transaction value among higher-value customers.
 
@@ -230,15 +230,14 @@ The analysis therefore goes beyond identifying high-value customers and asks: **
 Purchase frequency is a stronger predictor of total customer value (LTV), while it doesn't have any impact after controlling average order value (AOV).
 **Findings**
 - Spearman ρ = 0.930 → strong monotonic link (marginal, ignores other vars)
-- OLS std coef = 0.007 → almost no unique effect once AOV is controlled
+- OLS std coef = 0.007 → almost no unique effect **once AOV is controlled**
 - Why Spearman still matters:
 - Monetary is heavily skewed (skew=64, kurtosis=5108) → OLS assumptions (normal residuals, linear fit) are badly violated
-- Skewed data → Pearson/OLS coefficients get distorted by outliers; Spearman (rank-based) is robust to that
-- Spearman correctly shows frequency is associated with monetary — OLS just shows that association is mediated through AOV, not independent
+- Skewed data → Pearson/OLS coefficients get distorted by outliers; Spearman (rank-based) is robust to that Spearman correctly shows frequency is associated with monetary — OLS just shows that association is mediated through AOV, not independent
 
 ---
 
-### H4 — Behavioral Segmentation & Retention
+### H4 — Behavioral Segmentation & Retention (Behavioral Segment --> Retention)
 
 > **Distinct behavioral segments exist, based on RFM and engagement characteristics, and these segments exhibit meaningfully different retention curves — not merely different spending levels.**
 
@@ -270,7 +269,7 @@ Purchase frequency is a stronger predictor of total customer value (LTV), while 
 
 ---
 
-### H5 — Merchant & Category Diversity as a Loyalty Signal
+### H5 — Merchant & Category Diversity as a Loyalty Signal (Category/Merchant Diversity Segments --> Retention)
 
 > **Do customers who transact across multiple merchants/categories demonstrate higher retention than single-merchant customers, even after accounting for transaction frequency?**
 
@@ -288,7 +287,7 @@ Purchase frequency is a stronger predictor of total customer value (LTV), while 
 
 ---
 
-### H6 — Validating Anonymized Behavioral Segments
+### H6 — Validating Anonymized Behavioral Segments (Features --> Engagement)
 
 > **Do combinations of anonymized `feature_1`, `feature_2`, and `feature_3` correspond to statistically different engagement patterns?**
 
