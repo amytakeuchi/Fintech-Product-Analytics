@@ -106,7 +106,7 @@ This project approaches the problem from a **product analytics and lifecycle man
 
 ### H2 — D5 vs D10 Retention --> Inactivity & Reactivation 
 
-> **Among cards observed to still be inactive at day 10, the probability of reactivating within the next N days is materially lower than for cards observed to still be inactive at day 5. (Day 30 will be examined as a secondary/extended landmark to check whether the effect strengthens further out.)** (**Business question:** At what point does waiting for organic reactivation become less attractive than initiating a win-back intervention?)
+> **The longer a card stays inactive, the less likely it is to come back.** Cards still inactive at day 10 reactivate slower than cards inactive at day 5 — and day 30 is checked as a further point to see if the effect keeps compounding. (**Business question:** At what point does waiting for organic reactivation become less attractive than initiating a win-back intervention?)
 
 **Finding:**
 - Cards inactive for 30+ days show a statistically significant difference in subsequent reactivation compared to cards inactive for only 5–10 days (log-rank p < 0.005).
