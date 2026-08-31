@@ -83,7 +83,7 @@ This project approaches the problem from a **product analytics and lifecycle man
 ## 1. Retention & engagement diagnosis
 ### H1 — Engagement (Recency & Frequency) vs. Customer Value --> Churn
 
-> **Purchase recency and frequency are stronger predictors of future churn than transaction value, suggesting that habitual engagement may be more important for retention than simply spending more.**
+> **Purchase recency and frequency are stronger predictors of future churn than transaction value, suggesting that habitual engagement may be more important for retention than simply spending more.** (**Business question:** Should lifecycle teams prioritize behavioral engagement signals over monetary value when identifying customers at risk?)
 
 **Finding:**
 
@@ -101,35 +101,16 @@ This project approaches the problem from a **product analytics and lifecycle man
 - Churn-rate comparison across engagement tiers
 - Logistic regression / predictive modeling
 - Feature importance and model interpretation
-
-**Business question:** Should lifecycle teams prioritize behavioral engagement signals over monetary value when identifying customers at risk?
-
+- 
 ---
 
 ### H2 — D5 vs D10 Retention --> Inactivity & Reactivation 
 
-> **Among cards observed to still be inactive at day 10, the probability of reactivating within the next N days is materially lower than for cards observed to still be inactive at day 5. (Day 30 will be examined as a secondary/extended landmark to check whether the effect strengthens further out.)**
+> **Among cards observed to still be inactive at day 10, the probability of reactivating within the next N days is materially lower than for cards observed to still be inactive at day 5. (Day 30 will be examined as a secondary/extended landmark to check whether the effect strengthens further out.)** (**Business question:** At what point does waiting for organic reactivation become less attractive than initiating a win-back intervention?)
 
 **Finding:**
 - Cards inactive for 30+ days show a statistically significant difference in subsequent reactivation compared to cards inactive for only 5–10 days (log-rank p < 0.005).
 - The practical difference is large: median time-to-reactivation is 6.08 days for day-5 survivors/9.68 days for day-10 survivors vs. 16.26 days for day-30 survivors
-
-**Why this matters:** A lifecycle team needs to know when inactivity becomes actionable. Rather than arbitrarily defining 30 days as "inactive," this analysis treats inactivity as a **time-to-reactivation problem**.
-
-```text
-Last transaction
-       │
-       ▼
-   INACTIVITY
-       │
-       ├──────────────► Subsequent transaction
-       │                      ↓
-       │                  Reactivated
-       │
-       └──────────────► Observation ends
-                              ↓
-                         Right-censored
-```
 
 **Methodology:**
 - Transaction-gap analysis
@@ -151,8 +132,6 @@ Last transaction
 
 The 98th percentile is approximately 28 days, making 30 days an interesting candidate threshold for further investigation — not an assumption that 30 days is automatically correct.
 
-**Business question:** At what point does waiting for organic reactivation become less attractive than initiating a win-back intervention?
-
 ---
 
 ### H3 — Cohort Retention & Activation Risk (Earlier Cohort --> Retention Decline)
@@ -163,8 +142,6 @@ The 98th percentile is approximately 28 days, making 30 days an interesting cand
 - Earlier cohorts in February and March exhibit steeper earlier drop off with -19.4, -20.1, and -17.1 dropoffs in the first month and -2.8, -0..8, and -1.0 in the subsequent month
 
 <img src="image/cohort_dropoff.png" width="800" title="Cohort Dropoff Visualization">
-
-**Why this matters:** Overall retention can hide differences in customer lifecycle maturity. A recently activated customer may behave very differently from a customer who has been using the card for months.
 
 **Analysis:**
 - Cohort construction using `first_active_month`
@@ -241,8 +218,6 @@ Purchase frequency is a stronger predictor of total customer value (LTV), while 
 
 > **Distinct behavioral segments exist, based on RFM and engagement characteristics, and these segments exhibit meaningfully different retention curves — not merely different spending levels.**
 
-**Why this matters:** Traditional RFM segmentation can identify customers who spend more or transact more frequently. The more important product question is whether these behavioral differences actually correspond to different lifecycle outcomes.
-
 **Methodology:**
 
 1. **Create customer-level behavioral features** — candidate segmentation variables:
@@ -273,8 +248,6 @@ Purchase frequency is a stronger predictor of total customer value (LTV), while 
 
 > **Do customers who transact across multiple merchants/categories demonstrate higher retention than single-merchant customers, even after accounting for transaction frequency?**
 
-**Why this matters:** Frequency alone may not capture the depth of a customer's relationship with the payment network. A customer who uses the card across restaurants, retail, travel, groceries, and entertainment may have more opportunities and reasons to continue using the card than someone whose usage is concentrated at a single merchant.
-
 **Variables:** `unique_merchant_count`, `category_diversity`, `frequency`, `recency`, `monetary`, retention/churn outcome
 
 **Methodology:**
@@ -290,8 +263,6 @@ Purchase frequency is a stronger predictor of total customer value (LTV), while 
 ### H6 — Validating Anonymized Behavioral Segments (Features --> Engagement)
 
 > **Do combinations of anonymized `feature_1`, `feature_2`, and `feature_3` correspond to statistically different engagement patterns?**
-
-**Why this matters:** Real product analytics teams frequently receive predefined customer attributes or acquisition segments. An analyst should not simply report that the segments are different — the question is whether the behavioral differences are statistically meaningful, and which engagement dimensions actually differ.
 
 **Methodology:**
 - Group customers by `feature_1`, `feature_2`, `feature_3` combinations
