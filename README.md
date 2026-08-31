@@ -88,7 +88,7 @@ This project approaches the problem from a **product analytics and lifecycle man
 **Finding:**
 
 - Against Recency, churn probability increases materially between 90-120 days and 121-180 days while higher frequency shows modest impact on churn probability with 20% Churn rate on 50+ more frequent buyers.
-- Recency shows string correlation with Churn, having 0.84 Pearson and 0.61 Spearman. On the other hand, Frequency has negative correlation between Churn with -0.11 Pearson and -0.16 Spearman.
+- Recency shows strong correlation with Churn, having 0.84 Pearson and 0.61 Spearman. On the other hand, Frequency has negative correlation between Churn with -0.11 Pearson and -0.16 Spearman.
 - It is important to note that the definition of “Churn” here is “no transaction from 90 days before the cutoff of the data” and this can explain hte strong correlation between recency.
 
 <img src="image/rf_churn.png" width="1000" title="Recency & Frequency vs Churn rate">
