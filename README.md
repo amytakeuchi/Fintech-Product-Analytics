@@ -45,37 +45,7 @@ This project approaches the problem from a **product analytics and lifecycle man
 ---
 
 ## Analytical Framework
-
-```text
-                     CUSTOMER BEHAVIOR
-                            │
-             ┌──────────────┼──────────────┐
-             ▼              ▼              ▼
-          Recency        Frequency       Monetary
-             │              │              │
-             └──────────────┼──────────────┘
-                            ▼
-                   BEHAVIORAL SEGMENTS
-                            │
-             ┌──────────────┼──────────────┐
-             ▼              ▼              ▼
-           Loyal         At-Risk       Occasional
-             │              │              │
-             └──────────────┼──────────────┘
-                            ▼
-                    RETENTION OUTCOMES
-                            │
-             ┌──────────────┼──────────────┐
-             ▼              ▼              ▼
-          Retained       Reactivated      Churned
-                            │
-                            ▼
-                     LIFECYCLE ACTIONS
-                            │
-             ┌──────────────┼──────────────┐
-             ▼              ▼              ▼
-          Protect        Win-back        Activate
-```
+<img src="image/readme_diagram.png" title="Cohort Dropoff Visualization">
 
 ---
 
