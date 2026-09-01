@@ -209,7 +209,7 @@ Purchase frequency is a stronger predictor of total customer value (LTV), while 
 
 ### H5 — Merchant & Category Diversity as a Loyalty Signal (Category/Merchant Diversity Segments --> Retention)
 
-> **Do customers who transact across multiple merchants/categories demonstrate higher retention than single-merchant customers, even after accounting for transaction frequency?**
+> **Do customers who transact across multiple merchants/categories demonstrate higher retention than single-merchant customers, even after accounting for transaction frequency?** (**Business question:** Is breadth of engagement itself associated with loyalty, or is it simply a consequence of being a frequent user?)
 
 **Variables:** `unique_merchant_count`, `category_diversity`, `frequency`, `recency`, `monetary`, retention/churn outcome
 
@@ -218,24 +218,6 @@ Purchase frequency is a stronger predictor of total customer value (LTV), while 
 2. Compare diversity across frequency levels.
 3. Model retention/churn while controlling for frequency.
 4. Evaluate whether diversity remains associated with retention.
-
-**Business question:** Is breadth of engagement itself associated with loyalty, or is it simply a consequence of being a frequent user?
-
----
-
-### H6 — Validating Anonymized Behavioral Segments (Features --> Engagement)
-
-> **Do combinations of anonymized `feature_1`, `feature_2`, and `feature_3` correspond to statistically different engagement patterns?**
-
-**Methodology:**
-- Group customers by `feature_1`, `feature_2`, `feature_3` combinations
-- Compare behavioral measures
-- MANOVA for multivariate engagement differences
-- Follow-up univariate tests where appropriate
-- Effect-size interpretation
-- Business interpretation of meaningful segment differences
-
-**Business question:** Can we validate whether an existing segmentation framework actually corresponds to different customer behaviors?
 
 ---
 
