@@ -101,7 +101,7 @@ This project approaches the problem from a **product analytics and lifecycle man
 - Churn-rate comparison across engagement tiers
 - Logistic regression / predictive modeling
 - Feature importance and model interpretation
-- 
+
 ---
 
 ### H2 — D5 vs D10 Retention --> Inactivity & Reactivation 
@@ -136,24 +136,15 @@ The 98th percentile is approximately 28 days, making 30 days an interesting cand
 
 ### H3 — Cohort Retention & Activation Risk (Earlier Cohort --> Retention Decline)
 
-> **Do newer customer cohorts exhibit steeper early retention declines than older cohorts, indicating an onboarding or activation opportunity?**
+> **Do newer customer cohorts exhibit steeper early retention declines than older cohorts, indicating an onboarding or activation opportunity?** (**Business question:** Are newer customers failing to develop repeat usage at the same rate as established customers?)
 
 **Finding:**
 - Earlier cohorts in February and March exhibit steeper earlier drop off with -19.4, -20.1, and -17.1 dropoffs in the first month and -2.8, -0..8, and -1.0 in the subsequent month
+- --> the growth/lifecycle team should focus on early activation and habit formation, rather than lying to much on primarily on later-stage win-back campaigns.
+- Later win-back campaigns still matters as each cohort still see increase in drop-off especially at the beginning of the year.
+
 
 <img src="image/cohort_dropoff.png" width="800" title="Cohort Dropoff Visualization">
-
-**Analysis:**
-- Cohort construction using `first_active_month`
-- Cohort retention tables
-- Month-over-month retention
-- Retention drop-off analysis
-- Cohort heatmaps
-- Comparison of early lifecycle curves
-
-**Business question:** Are newer customers failing to develop repeat usage at the same rate as established customers?
-
-If supported, this would suggest that the growth/lifecycle team should focus on early activation and habit formation, rather than relying primarily on later-stage win-back campaigns.
 
 ---
 
