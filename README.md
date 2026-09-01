@@ -167,7 +167,7 @@ The analysis therefore goes beyond identifying high-value customers and asks: **
 
 Purchase frequency is a stronger predictor of total customer value (LTV), while it doesn't have any impact after controlling average order value (AOV).
 **Findings**
-- Spearman ρ = 0.930 → strong monotonic link (marginal, ignores other vars)
+- Spearman ρ = 0.930 → strong monotonic correlation (marginal, ignores other vars)
 - OLS std coef = 0.007 → almost no unique effect **once AOV is controlled**
 - Why Spearman still matters:
 - Monetary is heavily skewed (skew=64, kurtosis=5108) → OLS assumptions (normal residuals, linear fit) are badly violated
@@ -177,7 +177,11 @@ Purchase frequency is a stronger predictor of total customer value (LTV), while 
 
 ### H4 — Behavioral Segmentation & Retention (Behavioral Segment --> Retention)
 
-> **Distinct behavioral segments exist, based on RFM and engagement characteristics, and these segments exhibit meaningfully different retention curves — not merely different spending levels.**
+> **Distinct behavioral segments exist, based on RFM and engagement characteristics, and these segments exhibit meaningfully different retention curves — not merely different spending levels.** (Business question: Do different behavioral segments have different retention outcomes, and should they be treated with different retention strategies?)
+
+- K-Means clustering identified two different clusters:
+    - **Cluster 1:** Lower-engagement / less-active cards
+    - **Cluster 2:** Higher-engagement / more-active cards
 
 **Methodology:**
 
@@ -199,9 +203,7 @@ Purchase frequency is a stronger predictor of total customer value (LTV), while 
 
 4. **Profile each segment** by recency, frequency, monetary, merchant diversity, category diversity, and transaction behavior.
 
-5. **Validate segments against retention** — the key test is whether segments have different post-baseline retention curves, using Kaplan-Meier retention curves, log-rank tests, 30/60/90-day retention, and optional Cox proportional hazards modeling.
-
-**Business question:** Do behavioral segments represent genuinely different lifecycle states that warrant different retention strategies?
+5. **Validate segments against retention** — the key test is whether segments have different post-baseline retention curves, using Kaplan-Meier retention curves and 30/60/90-day retention.
 
 ---
 
