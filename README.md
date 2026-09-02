@@ -31,7 +31,7 @@ At-risk revenue by tier (customer count × avg spend × churn rate):
 | High | 53,546 | $98.55 | 9.0% | $475,098 | $9,502 |
 | Low | 63,156 | $5.80 | 49.3% | $180,581 | $3,612 |
 | Top | 62,150 | $184.59 | 0.0% | $0 | $0 |
-| **Total** | **319,659** | — | — | **$2,853,436** | **$57,069** |
+| **Total** | **319,659** | $91.98 | 19.2% | **$2,853,436** | **$57,069** |
 
 **Total protected revenue from a 2-point churn reduction across all tiers: ~$57,069**
 
