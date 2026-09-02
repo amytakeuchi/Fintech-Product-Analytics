@@ -1,5 +1,4 @@
-# Fintech-Product-Analytics
-# Customer Retention & Behavioral Segmentation Analytics
+# Fintech Product Analysis: Customer Retention & Behavioral Segmentation Analytics
 
 ## Executive Summary
 
