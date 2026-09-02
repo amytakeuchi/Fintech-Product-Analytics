@@ -128,26 +128,6 @@ This project approaches the problem from a **product analytics and lifecycle man
 - Cards inactive for 30+ days show a statistically significant difference in subsequent reactivation compared to cards inactive for only 5–10 days (log-rank p < 0.005).
 - The practical difference is large: median time-to-reactivation is 6.08 days for day-5 survivors/9.68 days for day-10 survivors vs. 16.26 days for day-30 survivors
 
-**Methodology:**
-- Transaction-gap analysis
-- Distribution of time-to-reactivation
-- Right-censoring
-- Kaplan-Meier survival analysis
-- Reactivation probability at 7/14/21/30/45/60/90 days
-- Evaluation of the 30-day candidate threshold
-
-**Initial finding** — among completed reactivation episodes:
-
-| Percentile | Gap |
-|---|---:|
-| 90th | 7.1 days |
-| 95th | 14.6 days |
-| 97th | 21.8 days |
-| 98th | 27.8 days |
-| 99th | 37.8 days |
-
-The 98th percentile is approximately 28 days, making 30 days an interesting candidate threshold for further investigation — not an assumption that 30 days is automatically correct.
-
 ---
 
 ### H3 — Cohort Retention & Activation Risk (Earlier Cohort --> Retention Decline)
@@ -225,28 +205,6 @@ The analysis therefore goes beyond identifying high-value customers and asks: **
     - **Cluster 1:** Higher-engagement / more-active cards
 - Cluster 1 (High-engagement/Active) has higher retention compared to Cluster 0 (Low-engagement/Less-Active) between 2018-01-31 and 2018-04-30
 <img src="image/h4_viz.png" title="Cluster Visualization & Survival by cluster: Cluster 1 has higher survival (Retention)">
-
-**Methodology:**
-
-1. **Create customer-level behavioral features** — candidate segmentation variables:
-   - `recency_days`
-   - `frequency`
-   - `monetary`
-   - `avg_transaction_amount`
-   - `unique_merchant_count`
-   - `category_diversity`
-   - `avg_days_between_transactions`
-
-2. **Transform and standardize** (transaction behavior is highly skewed):
-   ```text
-   Raw Features → log1p Transformation → StandardScaler → Clustering
-   ```
-
-3. **Identify behavioral clusters** — K-Means clustering evaluated across multiple values of `k`, considering silhouette score, cluster size, behavioral separation, and business interpretability.
-
-4. **Profile each segment** by recency, frequency, monetary, merchant diversity, category diversity, and transaction behavior.
-
-5. **Validate segments against retention** — the key test is whether segments have different post-baseline retention curves, using Kaplan-Meier retention curves and 30/60/90-day retention.
 
 ---
 
@@ -377,21 +335,54 @@ For analyses requiring complete transaction continuity — particularly reactiva
 
 ---
 
-## From Analysis to Lifecycle Strategy
+## Proposed Experiment
 
-The ultimate goal is not simply to produce statistically significant findings — the analysis is designed to translate behavioral signals into actionable lifecycle treatment.
+The analyses above are observational — they identify *associations* between behavior and 
+retention, but don't establish that intervening on them *causes* better outcomes. Below are 
+two experiment designs that would validate the highest-leverage findings before they inform 
+budget or campaign decisions.
 
-| Behavioral State | Potential Lifecycle Objective |
-|---|---|
-| High-frequency / high-value | Protect & reward loyalty |
-| High-value + declining recency | Prevent revenue loss |
-| Recently activated + low frequency | Build habit / activation |
-| Long inactivity | Win-back intervention |
-| Low engagement | Re-engagement or lower-cost treatment |
-| High merchant/category diversity | Protect broad card usage |
+### Experiment 1: Day-30 Win-Back Trigger (validates H2)
 
-The exact treatment should be determined by the magnitude and statistical evidence from the analysis.
+**Hypothesis:** Proactively triggering a win-back offer at day 30 of inactivity increases 
+reactivation rate compared to waiting for organic reactivation.
 
+- **Population:** Cards that cross 30 days of inactivity (the candidate threshold identified 
+  in H2, ~98th percentile of natural reactivation gaps)
+- **Design:** Randomize eligible cards into Treatment (receive win-back offer at D30) vs. 
+  Control (no intervention, natural reactivation only)
+- **Primary metric:** Reactivation rate within 14 days of trigger (Treatment vs. Control)
+- **Guardrail metrics:** Cost per reactivation (offer/discount cost ÷ incremental reactivations), 
+  post-reactivation retention at 30/60 days (to confirm the offer attracts durable reactivation, 
+  not one-time redemption)
+- **Duration/power:** Sized off the observed baseline reactivation curve from H2 — since median 
+  time-to-reactivation for D30 survivors is ~16 days, a 4–6 week test window with daily 
+  cohort entry should provide sufficient events to detect a meaningful lift at standard power 
+  (80%) and significance (α = 0.05)
+- **Why this matters:** This is the direct test of whether the "30-day threshold" from H2 is 
+  actionable, not just descriptive — it converts a survival-analysis observation into a 
+  validated intervention point.
+
+### Experiment 2: Mid-Tier Retention Offer (validates revenue-impact estimate)
+
+**Hypothesis:** A targeted retention offer to Mid-tier customers (highest absolute revenue 
+at risk per the Illustrative Revenue Impact analysis) reduces churn rate in that tier.
+
+- **Population:** Customers classified into the Mid tier (avg spend ~$121, current churn 23.0%)
+- **Design:** Randomize Mid-tier customers into Treatment (retention offer — e.g., diversity-driving 
+  incentive, given H5's association between merchant/category breadth and lower churn) vs. Control
+- **Primary metric:** 90-day churn rate, Treatment vs. Control
+- **Guardrail metrics:** Offer redemption cost vs. protected revenue (using the $30,898 
+  illustrative estimate as the pre-registered benchmark to beat), average spend post-treatment 
+  (to rule out margin erosion from discounting)
+- **Why this matters:** This directly tests whether the H5 diversity-churn association reflects 
+  a causal lever (breadth *drives* retention) or is merely correlated with an unobserved trait 
+  (e.g., customers who were already more engaged sought out more merchants) — the confound 
+  flagged in H5 itself.
+
+**Note on rollout:** Both experiments would run at limited scale first (e.g., 10% of eligible 
+population) before full rollout, allowing cost and lift estimates to be validated against the 
+illustrative projections above.
 ---
 
 ## Key Deliverables
