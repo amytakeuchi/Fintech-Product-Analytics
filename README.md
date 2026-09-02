@@ -20,21 +20,25 @@ Rather than treating customer value as simply a spending problem, the analysis i
 | H4 | Behavioral segments have distinct retention, not just spend | K-Means found two clusters; the high-engagement cluster shows measurably higher survival/retention than the low-engagement cluster across the observation window. | Segments should get differentiated lifecycle treatment (protect vs. activate), not a single blanket retention strategy. |
 | H5 | Merchant/category diversity as an independent loyalty signal | Retention rises sharply with diversity (churn 27.6%→11.7% by merchant tier, 27.9%→10.8% by category tier), but frequency also rises ~8x across the same tiers — so the naive diversity effect is confounded and not yet proven independent of frequency. | Diversity is a promising engagement signal worth tracking, but campaigns shouldn't target "breadth" alone until the frequency-controlled model confirms an independent effect. |
 
-### Illustrative Revenue Impact
+## Illustrative Revenue Impact
 
-At-risk revenue by tier (churn rate × avg spend × tier size):
+At-risk revenue by tier (customer count × avg spend × churn rate):
 
-| Tier | At-Risk Revenue | Avg Spend | Churn Rate | Protected Revenue (2pt churn reduction) |
-|---|---:|---:|---:|---:|
-| Mid | $1,544,893 | $121.12 | 23.0% | $30,898 |
-| Top + High | $697,926 | — | — | $13,959 |
-| Mid-high | $652,864 | — | — | $13,057 |
+| Tier | Customers | Avg Spend | Churn Rate | At-Risk Revenue | Protected Revenue (2pt churn reduction) |
+|---|---:|---:|---:|---:|---:|
+| Mid | 55,545 | $121.12 | 23.0% | $1,544,893 | $30,898 |
+| Mid-high | 85,262 | $49.83 | 15.4% | $652,864 | $13,057 |
+| High | 53,546 | $98.55 | 9.0% | $475,098 | $9,502 |
+| Low | 63,156 | $5.80 | 49.3% | $180,581 | $3,612 |
+| Top | 62,150 | $184.59 | 0.0% | $0 | $0 |
+| **Total** | **319,659** | — | — | **$2,853,436** | **$57,069** |
 
-**Total protected revenue from a 2-point churn reduction across all tiers: ~$57,914**
+**Total protected revenue from a 2-point churn reduction across all tiers: ~$57,069**
 
-**Key insight:** Despite Top+High tier having the highest per-customer value (per the RFM concentration finding — 36% of users driving 60% of value), the **Mid tier carries the largest absolute revenue at risk** ($1.5M vs. ~$650–700K), because its much larger customer base and 23% churn rate outweigh its lower per-customer spend. A uniform churn-reduction intervention would protect more than 2x the revenue if targeted at Mid-tier vs. Top+High tier alone.
+**Key insight:** Despite Top tier having the highest per-customer spend ($184.59), it shows **0% observed churn** — this tier is already fully retained and contributes no at-risk revenue, so it isn't a churn-reduction priority even though it's the highest-value segment. The **Mid tier carries the largest absolute revenue at risk** ($1.5M — more than double the next-highest tier), driven by a combination of high spend ($121.12) and elevated churn (23.0%). Meanwhile, the **Low tier churns nearly half its customers (49.3%)** but represents minimal dollar risk ($180K) due to very low average spend ($5.80) — a reminder that churn *rate* and revenue *risk* are not the same thing, and campaigns should be prioritized on the latter.
 
-**Caveat:** These are illustrative estimates based on observed churn rates and a hypothetical 2-point reduction, not a validated causal effect — see Proposed Experiment section for how this would be tested before informing budget decisions.
+**Caveat:** These are illustrative estimates based on observed churn rates and a hypothetical uniform 2-point reduction, not a validated causal effect — see Proposed Experiment section for how this would be tested before informing budget decisions.
+
 ## From Analysis to Lifecycle Strategy
 
 The ultimate goal is not simply to produce statistically significant findings — the analysis is designed to translate behavioral signals into actionable lifecycle treatment.
