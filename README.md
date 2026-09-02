@@ -9,6 +9,16 @@ This project analyzes transaction-level data from **Elo**, a Brazilian payment n
 
 Rather than treating customer value as simply a spending problem, the analysis investigates whether **behavioral habits — recency, frequency, merchant/category breadth, and transaction patterns — provide earlier and more actionable signals of customer retention risk.**
 
+## Key Findings
+
+| # | Hypothesis | Result | Business Implication |
+|---|---|---|---|
+| H1 | Recency & frequency vs. monetary value as churn predictors | Recency is strongly associated with churn (Pearson 0.84); frequency shows a weak/negative association (Pearson -0.11). Note: churn is defined by 90-day inactivity, so recency's correlation is partly definitional — the actionable signal is *how early* declining recency predicts eventual churn, not the correlation itself. | Lifecycle risk models should treat recency as the primary early-warning signal, not spend level. |
+| H2 | Longer inactivity → lower reactivation odds | Cards inactive 30+ days reactivate significantly slower than 5–10 day cases (log-rank p < 0.005); median time-to-reactivation rises from ~6–10 days to 16+ days. 98th percentile of reactivation gaps is ~28 days. | A ~30-day inactivity threshold is a defensible trigger point for win-back campaigns rather than waiting for organic reactivation. |
+| H3 | Newer cohorts show steeper early drop-off | Feb/Mar cohorts lost 17–20% of users in month 1 vs. under 3% in month 2 — the decline is front-loaded. | Onboarding/early-activation investment likely has more leverage than later-stage win-back spend, though win-back still matters at scale. |
+| H4 | Behavioral segments have distinct retention, not just spend | K-Means found two clusters; the high-engagement cluster shows measurably higher survival/retention than the low-engagement cluster across the observation window. | Segments should get differentiated lifecycle treatment (protect vs. activate), not a single blanket retention strategy. |
+| H5 | Merchant/category diversity as an independent loyalty signal | Retention rises sharply with diversity (churn 27.6%→11.7% by merchant tier, 27.9%→10.8% by category tier), but frequency also rises ~8x across the same tiers — so the naive diversity effect is confounded and not yet proven independent of frequency. | Diversity is a promising engagement signal worth tracking, but campaigns shouldn't target "breadth" alone until the frequency-controlled model confirms an independent effect. |
+
 ### Analytical Approach
 
 The project combines:
