@@ -177,7 +177,7 @@ The analysis therefore goes beyond identifying high-value customers and asks: **
 - K-Means clustering identified two different clusters:
     - **Cluster 0:** Lower-engagement / less-active cards
     - **Cluster 1:** Higher-engagement / more-active cards
-    - 
+- Cluster 1 (High-engagement/Active) has higher retention compared to Cluster 0 (Low-engagement/Less-Active) between 2018-01-31 and 2018-04-30
 <img src="image/h4_viz.png" title="Cluster Visualization & Survival by cluster: Cluster 1 has higher survival (Retention)">
 
 **Methodology:**
@@ -206,9 +206,27 @@ The analysis therefore goes beyond identifying high-value customers and asks: **
 
 ### H5 — Merchant & Category Diversity as a Loyalty Signal (Category/Merchant Diversity Segments --> Retention)
 
-> **Do customers who transact across multiple merchants/categories demonstrate higher retention than single-merchant customers, even after accounting for transaction frequency?** (**Business question:** Is breadth of engagement itself associated with loyalty, or is it simply a consequence of being a frequent user?)
+> **Do customers who transact across multiple merchants/categories demonstrate higher retention than single-merchant customers, even after accounting for transaction frequency?** (**Business question:** Is breadth of engagement itself associated with retention, or is it simply a consequence of being a frequent user?)
 
-**Variables:** `unique_merchant_count`, `category_diversity`, `frequency`, `recency`, `monetary`, retention/churn outcome
+**Findings:**
+- Both diversity measures show a strong, monotonic naive link to retention — churn roughly halves from Low to High tier (merchants: 27.6%→11.7%; categories: 27.9%→10.8%).
+- But avg_frequency also rises 8x across the same tiers, so this association is confounded and can't yet be called an independent "diversity effect" — Step 2/3 (frequency control) will determine that.
+
+**Unique Merchant Count**
+| Tier   | n       | Retention | Churn | Avg Merchants | Avg Frequency |
+|--------|---------|-----------|-------|----------------|----------------|
+| Low    | 109,503 | 72.4%     | 27.6% | 10.5           | 20.9           |
+| Medium | 104,970 | 81.5%     | 18.5% | 25.9           | 55.8           |
+| High   | 105,186 | 88.4%     | 11.7% | 67.3           | 171.4          |
+
+**Category Diversity**
+| Tier   | n       | Retention | Churn | Avg Categories | Avg Frequency |
+|--------|---------|-----------|-------|-----------------|----------------|
+| Low    | 112,984 | 72.1%     | 27.9% | 8.0             | 23.5           |
+| Medium | 102,367 | 81.4%     | 18.6% | 16.7            | 58.6           |
+| High   | 104,308 | 89.2%     | 10.8% | 31.8            | 167.9          |
+  
+**Variables:** `unique_merchant_count`, `category_diversity`, `frequency`, retention/churn outcome
 
 **Methodology:**
 1. Compare retention between low- and high-diversity users.
