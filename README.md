@@ -175,8 +175,10 @@ The analysis therefore goes beyond identifying high-value customers and asks: **
 > **Distinct behavioral segments exist, based on RFM and engagement characteristics, and these segments exhibit meaningfully different retention curves — not merely different spending levels.** (Business question: Do different behavioral segments have different retention outcomes, and should they be treated with different retention strategies?)
 
 - K-Means clustering identified two different clusters:
-    - **Cluster 1:** Lower-engagement / less-active cards
-    - **Cluster 2:** Higher-engagement / more-active cards
+    - **Cluster 0:** Lower-engagement / less-active cards
+    - **Cluster 1:** Higher-engagement / more-active cards
+    - 
+<img src="image/h4_viz.png" title="Cluster Visualization & Survival by cluster: Cluster 1 has higher survival (Retention)">
 
 **Methodology:**
 
