@@ -20,7 +20,21 @@ Rather than treating customer value as simply a spending problem, the analysis i
 | H4 | Behavioral segments have distinct retention, not just spend | K-Means found two clusters; the high-engagement cluster shows measurably higher survival/retention than the low-engagement cluster across the observation window. | Segments should get differentiated lifecycle treatment (protect vs. activate), not a single blanket retention strategy. |
 | H5 | Merchant/category diversity as an independent loyalty signal | Retention rises sharply with diversity (churn 27.6%→11.7% by merchant tier, 27.9%→10.8% by category tier), but frequency also rises ~8x across the same tiers — so the naive diversity effect is confounded and not yet proven independent of frequency. | Diversity is a promising engagement signal worth tracking, but campaigns shouldn't target "breadth" alone until the frequency-controlled model confirms an independent effect. |
 
-## Illustrative Revenue Impact
+### Illustrative Revenue Impact
+
+At-risk revenue by tier (churn rate × avg spend × tier size):
+
+| Tier | At-Risk Revenue | Avg Spend | Churn Rate | Protected Revenue (2pt churn reduction) |
+|---|---:|---:|---:|---:|
+| Mid | $1,544,893 | $121.12 | 23.0% | $30,898 |
+| Top + High | $697,926 | — | — | $13,959 |
+| Mid-high | $652,864 | — | — | $13,057 |
+
+**Total protected revenue from a 2-point churn reduction across all tiers: ~$57,914**
+
+**Key insight:** Despite Top+High tier having the highest per-customer value (per the RFM concentration finding — 36% of users driving 60% of value), the **Mid tier carries the largest absolute revenue at risk** ($1.5M vs. ~$650–700K), because its much larger customer base and 23% churn rate outweigh its lower per-customer spend. A uniform churn-reduction intervention would protect more than 2x the revenue if targeted at Mid-tier vs. Top+High tier alone.
+
+**Caveat:** These are illustrative estimates based on observed churn rates and a hypothetical 2-point reduction, not a validated causal effect — see Proposed Experiment section for how this would be tested before informing budget decisions.
 ## From Analysis to Lifecycle Strategy
 
 The ultimate goal is not simply to produce statistically significant findings — the analysis is designed to translate behavioral signals into actionable lifecycle treatment.
