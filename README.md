@@ -20,6 +20,23 @@ Rather than treating customer value as simply a spending problem, the analysis i
 | H4 | Behavioral segments have distinct retention, not just spend | K-Means found two clusters; the high-engagement cluster shows measurably higher survival/retention than the low-engagement cluster across the observation window. | Segments should get differentiated lifecycle treatment (protect vs. activate), not a single blanket retention strategy. |
 | H5 | Merchant/category diversity as an independent loyalty signal | Retention rises sharply with diversity (churn 27.6%→11.7% by merchant tier, 27.9%→10.8% by category tier), but frequency also rises ~8x across the same tiers — so the naive diversity effect is confounded and not yet proven independent of frequency. | Diversity is a promising engagement signal worth tracking, but campaigns shouldn't target "breadth" alone until the frequency-controlled model confirms an independent effect. |
 
+## Illustrative Revenue Impact
+## From Analysis to Lifecycle Strategy
+
+The ultimate goal is not simply to produce statistically significant findings — the analysis is designed to translate behavioral signals into actionable lifecycle treatment.
+
+| Behavioral State | Potential Lifecycle Objective | Priority Basis |
+|---|---|---|
+| Mid-tier value + high churn (23%) | **Highest-priority churn reduction** — largest absolute revenue at risk ($1.5M) due to tier size, despite lower per-customer spend | Volume × churn rate |
+| Top + High-value + declining recency | Protect & prevent revenue loss — highest per-customer value, though smaller absolute at-risk pool than Mid-tier | Per-customer value |
+| Recently activated + low frequency | Build habit / activation | Early lifecycle (H3) |
+| Long inactivity (30+ days) | Win-back intervention | Reactivation odds (H2) |
+| Low engagement / low diversity | Re-engagement or lower-cost treatment | H4/H5 segment risk |
+| High merchant/category diversity | Protect broad card usage | Loyalty signal (H5) |
+
+**Note:** Per-customer value and absolute revenue-at-risk don't point to the same tier. Top+High customers are individually more valuable, but the Mid-tier's larger population and elevated churn rate (23%) mean it carries the greatest total revenue exposure ($1.5M vs. ~$650–700K for the other tiers). A resource-constrained lifecycle team optimizing for total dollars protected — rather than per-customer value alone — should weight Mid-tier retention efforts accordingly, alongside continued protection of the high-value base.
+
+
 ### Analytical Approach
 
 The project combines:
