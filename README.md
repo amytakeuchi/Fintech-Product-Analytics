@@ -125,21 +125,15 @@ The 98th percentile is approximately 28 days, making 30 days an interesting cand
 RFM provides the foundation for customer behavioral analysis.
 
 **Recency** — How recently did the customer transact?
-```text
-Recency = observation_date − last_purchase_date
-```
-Lower recency indicates more recent engagement.
+- `Recency = observation_date − last_purchase_date`
+- Lower recency indicates more recent engagement.
 
 **Frequency** — How often did the customer transact?
-```text
-Frequency = number of transactions
-```
-Frequency is used as a proxy for behavioral engagement and habit formation.
+- `Frequency = number of transactions`
+- Frequency is used as a proxy for behavioral engagement and habit formation.
 
 **Monetary** — How much did the customer spend?
-```text
-Monetary = total transaction value
-```
+- `Monetary = total transaction value`
 
 **Additional behavioral measures:**
 - Average transaction value / AOV
@@ -152,7 +146,7 @@ Monetary = total transaction value
 
 ## [Monetary] Customer Value Concentration Analysis 
 
-Initial RFM analysis shows a meaningful concentration of transaction value among higher-value customers.
+**Result** Initial RFM analysis shows a meaningful concentration of transaction value among higher-value customers.
 
 **Findings**
 - The top 36.19% of users (Top + High tier) account for 59.62% of total monetary value.
@@ -165,7 +159,8 @@ The analysis therefore goes beyond identifying high-value customers and asks: **
 
 ## Frequency Analysis
 
-Purchase frequency is a stronger predictor of total customer value (LTV), while it doesn't have any impact after controlling average order value (AOV).
+**Result** Purchase frequency is a stronger predictor of total customer value (LTV), while it doesn't have any impact after controlling average order value (AOV).
+
 **Findings**
 - Spearman ρ = 0.930 → strong monotonic correlation (marginal, ignores other vars)
 - OLS std coef = 0.007 → almost no unique effect **once AOV is controlled**
