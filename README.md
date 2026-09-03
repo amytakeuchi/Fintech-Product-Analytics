@@ -13,7 +13,7 @@ Rather than treating customer value as simply a spending problem, the analysis i
 | # | Hypothesis / Analysis | Result | Business Implication |
 |---|---|---|---|
 | H1 | Recency & frequency vs. monetary value as churn predictors | Recency is strongly associated with churn (Pearson 0.84); frequency shows a weak/negative association (Pearson -0.11). Note: churn is defined by 90-day inactivity, so recency's correlation is partly definitional — the actionable signal is *how early* declining recency predicts eventual churn, not the correlation itself. | Lifecycle risk models should treat recency as the primary early-warning signal, not spend level. |
-| H2 | Longer inactivity → lower reactivation odds | Cards inactive 30+ days reactivate significantly slower than 5–10 day cases (log-rank p < 0.005); median time-to-reactivation rises from ~6–10 days to 16+ days. 98th percentile of reactivation gaps is ~28 days. | A ~30-day inactivity threshold is a defensible trigger point for win-back campaigns rather than waiting for organic reactivation. |
+| H2 | Longer inactivity → lower reactivation odds | Cards inactive 30+ days reactivate significantly slower than 5–10 day cases (log-rank p < 0.005); median time-to-reactivation rises from ~6–10 days to 19+ days. 98th percentile of reactivation gaps is ~28 days. | A ~30-day inactivity threshold is a defensible trigger point for win-back campaigns rather than waiting for organic reactivation. |
 | H3 | Newer cohorts show steeper early drop-off | Feb/Mar cohorts lost 17–20% of users in month 1 vs. under 3% in month 2 — the decline is front-loaded. | Onboarding/early-activation investment likely has more leverage than later-stage win-back spend, though win-back still matters at scale. |
 | RFM-1 | Value concentration (Monetary tier analysis) | The top 36.19% of users (Top + High tier) account for 59.62% of total monetary value; the remaining 44.05% (Mid-high + Mid) account for just 39.07%. | Customer value is concentrated in a relatively small group — protecting this segment's retention matters disproportionately, but "high-value" and "healthy/low-risk" aren't the same thing and must be assessed separately. |
 | RFM-2 | Frequency as a driver of LTV | Frequency correlates strongly with monetary value on its own (Spearman ρ = 0.930), but once AOV is controlled for, frequency adds almost no independent effect (OLS std coef = 0.007) — the relationship is mediated through AOV, not direct. | LTV growth strategies aimed purely at transaction frequency may be mediated by order size, not habit — AOV-focused and frequency-focused interventions need to be evaluated separately, not treated as interchangeable levers. |
@@ -126,7 +126,7 @@ This project approaches the problem from a **product analytics and lifecycle man
 
 **Finding:**
 - Cards inactive for 30+ days show a statistically significant difference in subsequent reactivation compared to cards inactive for only 5–10 days (log-rank p < 0.005).
-- The practical difference is large: median time-to-reactivation is 6.08 days for day-5 survivors/9.68 days for day-10 survivors vs. 16.26 days for day-30 survivors
+- The practical difference is large: median time-to-reactivation is 6.21 days for day-5 survivors/10.01 days for day-10 survivors vs. 19.24 days for day-30 survivors
 
 ---
 
